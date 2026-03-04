@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-"use client";
+/*"use client";
 import { useState } from "react";
 import {
   Accordion,
@@ -84,4 +84,4 @@ export default function WorkSection() {
     </Accordion>
   );
 }
-
+*/
