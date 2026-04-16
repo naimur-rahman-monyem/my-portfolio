@@ -25,6 +25,32 @@ While my background is rooted in core engineering and development with C# and Ja
 
 Currently, I am leveraging my technical foundation to master the modern data stack—combining Python, SQL, and analytical thinking to solve real-world problems. I am eager to contribute my technical expertise to a data-forward team where I can grow as a Data Analyst.`,
   avatarUrl: "/naimur.jpg",
+  education: [
+    {
+      school: "American International University-Bangladesh",
+      href: "https://www.aiub.edu",
+      degree: "Bachelor of Science in Computer Science & Engineering (BSc CSE)",
+      logoUrl: "/aiub.png", 
+      start: "2022",
+      end: "Ongoing",
+    },
+    {
+      school: "Shaheed Ramiz Uddin Cantonment College",
+      href: "https://www.sbbrcs.edu.bd/",
+      degree: "Higher Secondary Certificate (HSC)",
+      logoUrl: "/srcc.jpg", 
+      start: "2019",
+      end: "2021",
+    },
+    {
+      school: "Safiuddin Sarker Academy and College",
+      href: "https://ssaac.edu.bd/",
+      degree: "Secondary School Certificate (SSC)",
+      logoUrl: "/ssac.png",
+      start: "2013",
+      end: "2019",
+    },
+  ],
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Typescript", icon: Typescript},
@@ -41,7 +67,11 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   ],
  navbar: [
   { href: "/", icon: HomeIcon, label: "Home" },
-  { href: "/insights", icon: NotebookIcon, label: "Insights" }, 
+  { href: "/#education", icon: Icons.education, label: "Education" },
+  { href: "/#projects", icon: Icons.project, label: "Projects" }, 
+  { href: "/insights", icon: NotebookIcon, label: "Research Papers" },
+  
+
 ],
   contact: {
     email: "naimurrohan204@gmail.com",
@@ -79,37 +109,12 @@ Currently, I am leveraging my technical foundation to master the modern data sta
       },
     },
   },
-  education: [
-    {
-     school: "American International University-Bangladesh",
-      href: "https://www.aiub.edu/",
-      degree: "Bachelor of Science in Computer Science & Engineering (BSc CSE)",
-      logoUrl: "/aiub.png",
-      start: "2022",
-      end: "Ongoing",
-    },
-    {
-      school: "Shaheed Ramiz Uddin Cantonment College",
-      href: "http://srcc.edu.bd/",
-      degree: " Higher Secondary Certificate (HSC)",
-      logoUrl: "/srcc.jpg",
-      start: "2019",
-      end: "2021",
-    },
-    {
-      school: "Safiuddin Sarker Academy and College",
-      href: "https://ssaac.edu.bd/",
-      degree: "Secondary School Certificate (SSC)",
-      logoUrl: "/ssac.png",
-      start: "2013",
-      end: "2019",
-    },
-  ],
+  
   projects: [
     
     {
   title: "CarSales Inventory Management",
-  href: "https://github.com/naimurrahman7402/Carsales-InventoryManagementSystem",
+  href: "https://github.com/naimur-rahman-monyem/Carsales-InventoryManagementSystem",
   dates: "January 2024 - Present",
   active: true,
   description:
@@ -124,13 +129,80 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   links: [
     {
       type: "Source",
-      href: "https://github.com/naimurrahman7402/Carsales-InventoryManagementSystem",
+      href: "https://github.com/naimur-rahman-monyem/Carsales-InventoryManagementSystem",
       icon: <Icons.github className="size-3" />,
     },
   ],
   image: "/Carsales.png", 
   video: "", 
-}
+},
+{
+  title: "AIUB Cineplex",
+  href: "https://github.com/naimur-rahman-monyem/Aiub_Cineplex",
+  dates: "2023",
+  active: true,
+  description:
+    "A cinema management system designed to handle movie listings, seat booking, ticket sales, and customer management for AIUB Cineplex. Built to simulate real-world theater operations with a clean user experience.",
+  technologies: [
+    "Java"
+  ],
+  links: [
+    {
+      type: "Source",
+      href: "https://github.com/naimur-rahman-monyem/Aiub_Cineplex",
+      icon: <Icons.github className="size-3" />,
+    },
+  ],
+  image: "/aiub-cineplex.png",
+  video: "",
+}, 
+{
+  title: "Phishing Website Detection using Multi-Modal ML",
+  href: "https://github.com/naimur-rahman-monyem/A-Multi-Modal-Machine-Learning-Approach-for-Phishing-Website-Detection-Using-URL-and-Visual-Features",
+  dates: "2024- 2025",
+  active: true,
+  description:
+    "Developed a hybrid security framework that combines URL analysis and Computer Vision to detect phishing websites. The system uses a multi-modal machine learning approach to achieve higher accuracy than traditional single-feature methods.",
+  technologies: [
+    "Python",
+    "Machine Learning",
+    "NLP",
+    "Data Science",
+  ],
+  links: [
+    {
+      type: "Source",
+      href: "https://github.com/naimur-rahman-monyem/A-Multi-Modal-Machine-Learning-Approach-for-Phishing-Website-Detection-Using-URL-and-Visual-Features",
+      icon: <Icons.github className="size-3" />,
+    },
+  ],
+  image: "/phishing-pic.jpg", 
+  video: "",
+},
+{
+  title: "Personal Portfolio",
+  href: "https://github.com/naimur-rahman-monyem/my-portfolio",
+  dates: "2024",
+  active: true,
+  description:
+    "A professional portfolio website built to showcase my projects and thoughts on software development. Features a clean, dark-themed UI with smooth animations and a fully functional blog.",
+  technologies: [
+    "Next.js",
+    "Typescript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Magic UI",
+  ],
+  links: [
+    {
+      type: "Source",
+      href: "https://github.com/naimur-rahman-monyem/my-portfolio",
+      icon: <Icons.github className="size-3" />,
+    },
+  ],
+  image: "/portfolio-pic.png"
+},
+
 ]
 
   

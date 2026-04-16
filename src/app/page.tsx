@@ -9,6 +9,7 @@ import ContactSection from "@/components/section/contact-section";
 import ProjectsSection from "@/components/section/projects-section";
 import { ArrowUpRight } from "lucide-react";
 
+
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
@@ -62,7 +63,7 @@ export default function Page() {
             <h2 className="text-xl font-bold">Education</h2>
           </BlurFade>
           <div className="flex flex-col gap-8">
-            {DATA.education.map((education, index) => (
+            {DATA.education?.map((education, index) =>  (
               <BlurFade
                 key={education.school}
                 delay={BLUR_FADE_DELAY * 8 + index * 0.05}
@@ -125,12 +126,12 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <ProjectsSection />
-        </BlurFade>
-      </section>
+     {/* Projects Section */}
+<section id="projects"> {/* This ID matches the /#projects link above */}
+  <BlurFade delay={BLUR_FADE_DELAY * 11}>
+    <ProjectsSection />
+  </BlurFade>
+</section>
 
       {/* Empty Hackathons Section - Fixed by removing the BlurFade wrapper */}
       <section id="hackathons"></section>
