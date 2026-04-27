@@ -129,8 +129,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
       icon: <Icons.github className="size-3" />,
     },
   ],
-  image: "/Carsales.png", 
-  video: "", 
+  image: "/Carsales.png"
 },
 {
   title: "AIUB Cineplex",
@@ -149,8 +148,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
       icon: <Icons.github className="size-3" />,
     },
   ],
-  image: "/aiub-cineplex.png",
-  video: "",
+  image: "/aiub-cineplex.png"
 }, 
 {
   title: "Phishing Website Detection using Multi-Modal ML",
@@ -172,8 +170,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
       icon: <Icons.github className="size-3" />,
     },
   ],
-  image: "/phishing-pic.jpg", 
-  video: "",
+  image: "/phishing-pic.jpg"
 },
 {
   title: "Personal Portfolio",
