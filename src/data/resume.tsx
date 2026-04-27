@@ -69,7 +69,8 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   { href: "/", icon: HomeIcon, label: "Home" },
   { href: "/#education", icon: Icons.education, label: "Education" },
   { href: "/#projects", icon: Icons.project, label: "Projects" }, 
-  { href: "/insights", icon: NotebookIcon, label: "Research Papers" },
+  { href: "/#research", icon: NotebookIcon, label: "Research Papers" },
+
   
 
 ],
@@ -89,12 +90,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   icon: Icons.linkedin,
   navbar: true,
 },
-      Facebook: {
-        name: "Facebook",
-        url: "https://www.facebook.com/rohan.naimur",
-        icon: Icons.facebook,
-        navbar: true,
-      },
+    
       WhatsApp: {
       name: "WhatsApp",
       url: "https://wa.me/8801607887741", 
@@ -203,7 +199,42 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   image: "/portfolio-pic.png"
 },
 
-]
 
+],
+research: [
+  {
+    title: "A Multi-Modal Machine Learning Approach for Phishing Website Detection Using URL and Visual Features",
+    dates: "Oct 2025 - Jan 2026",
+    conference: "Undergraduate Research Project",
+    description:
+      "A hybrid security framework combining CNN-based visual analysis and DistilBERT for URL features. Achieved high accuracy in identifying malicious websites through multi-modal data fusion.",
+    links: [
+      {
+        type: "Source",
+        href: "https://github.com/naimur-rahman-monyem/A-Multi-Modal-Machine-Learning-Approach-for-Phishing-Website-Detection-Using-URL-and-Visual-Features",
+        icon: <Icons.github className="size-3" />,
+      },
+      {
+        type: "Download PDF",
+       href: "/papers/research_paper_1.pdf", // Ensure this file is in your /public folder
+        icon: <Icons.download className="size-3" />,
+      },
+    ],
+  },
+  {
+    title: "An Explainable Machine Learning Framework for Cybersecurity Risk Prediction",
+    dates: "Feb 2026 - Present",
+    conference: "Ongoing Research",
+    description:
+      "Researching clustering-based personalized recommendations and Explainable AI (XAI) to predict and communicate cybersecurity risks effectively to university students.",
+    links: [
+      {
+        type: "Abstract",
+        href: "#", 
+        icon: <Icons.external className="size-3" />,
+      },
+    ],
+  },
+],
   
 } as const;

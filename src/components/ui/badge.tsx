@@ -1,7 +1,10 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
+"use client"; // Required for Framer Motion
 
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion"; // 1. Import motion
+
+import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
   "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
@@ -21,16 +24,27 @@ const badgeVariants = cva(
       variant: "default",
     },
   }
-)
+);
 
+// 2. Update interface to use motion's props
 export interface BadgeProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends React.ComponentPropsWithoutRef<typeof motion.div>,
     VariantProps<typeof badgeVariants> {}
 
 function Badge({ className, variant, ...props }: BadgeProps) {
   return (
-    <div className={cn(badgeVariants({ variant }), className)} {...props} />
-  )
+    <motion.div
+      // 3. Simple pop-in animation
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.2 }}
+      
+      className={cn(badgeVariants({ variant }), className)}
+      {...props}
+    />
+  );
 }
 
-export { Badge, badgeVariants }
+export { Badge, badgeVariants };

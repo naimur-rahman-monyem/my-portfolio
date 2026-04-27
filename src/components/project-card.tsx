@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
+import { motion } from "framer-motion"; 
 
 function ProjectImage({ src, alt }: { src: string; alt: string }) {
   const [imageError, setImageError] = useState(false);
@@ -55,9 +56,15 @@ export function ProjectCard({
   className,
 }: Props) {
   return (
-    <div
+    // 2. Change div to motion.div and add animation props
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      whileHover={{ y: -5 }} // Subtle lift on hover
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200 bg-background",
         className
       )}
     >
@@ -94,7 +101,7 @@ export function ProjectCard({
                 onClick={(e) => e.stopPropagation()}
               >
                 <Badge
-                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
+                  className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black"
                   variant="default"
                 >
                   {link.icon}
@@ -138,6 +145,6 @@ export function ProjectCard({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
