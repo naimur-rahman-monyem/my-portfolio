@@ -9,6 +9,7 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Markdown from "react-markdown";
+import { ProjectCard } from "@/components/project-card";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -54,7 +55,7 @@ export default function Page() {
             <div className="gap-2 flex flex-col order-2 md:order-1 flex-1">
               <BlurFade delay={BLUR_FADE_DELAY} yOffset={8}>
                 <h1 className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl">
-                  Hi, I'm {DATA.name.split(" ")[0]} 👋
+                  Hi, I'm {DATA.name.split(" ")[0]} 
                 </h1>
               </BlurFade>
               <CyclingDescription description={DATA.description} />
@@ -152,7 +153,49 @@ export default function Page() {
           </div>
         </div>
       </section>
-
+{/* Projects Section */}
+<section id="projects">
+  <div className="space-y-12 w-full py-12">
+    <BlurFade delay={BLUR_FADE_DELAY * 11}>
+      <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="space-y-2">
+          <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+            My Projects
+          </div>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Check out my latest work
+          </h2>
+          <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            I&apos;ve worked on everything from simple websites to complex 
+            machine learning models for cybersecurity.
+          </p>
+        </div>
+      </div>
+    </BlurFade>
+    
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+      {DATA.projects.map((project, id) => (
+        <BlurFade
+          key={project.title}
+          delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+        >
+          <ProjectCard
+            href={project.href}
+            key={project.title}
+            title={project.title}
+            description={project.description}
+            dates={project.dates}
+            tags={project.technologies}
+            image={project.image}
+            // This ternary prevents the 'unknown' and 'missing property' errors
+            video={"video" in project ? (project.video as string) : undefined}
+            links={project.links}
+          />
+        </BlurFade>
+      ))}
+    </div>
+  </div>
+</section>
       {/* Research Section */}
       <section id="research">
         <div className="mx-auto w-full max-w-2xl space-y-12 py-12">
