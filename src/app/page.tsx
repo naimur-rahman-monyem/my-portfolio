@@ -1,16 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { Icons } from "@/components/icons"; // Or the correct path to your icons file
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
+import BlurFade  from "@/components/magicui/blur-fade";
+import { Icons } from "@/components/icons"; // This fixes the Vercel error
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
-import Markdown from "react-markdown";
-import ContactSection from "@/components/section/contact-section";
-import ProjectsSection from "@/components/section/projects-section";
 import { ArrowUpRight } from "lucide-react";
 
 
