@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { Icons } from "@/components/icons"; // Or the correct path to your icons file
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import BlurFade from "@/components/magicui/blur-fade";

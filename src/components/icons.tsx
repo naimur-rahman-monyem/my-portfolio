@@ -1,11 +1,11 @@
-import { GlobeIcon, MailIcon, FolderKanban ,GraduationCap,DownloadIcon, 
+import { GlobeIcon, MailIcon, FolderKanban ,GraduationCap ,DownloadIcon, 
   ExternalLink} from "lucide-react"; // Added FolderKanban
 
 export type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   globe: (props: IconProps) => <GlobeIcon {...props} />,
-  email: (props: IconProps) => <MailIcon {...props} />,
+  email: (props: IconProps) => <MailIcon {...props} />, 
   project: (props: IconProps) => <FolderKanban {...props} />, 
   // New Icons for Research Section
   download: (props: IconProps) => <DownloadIcon {...props} />,
