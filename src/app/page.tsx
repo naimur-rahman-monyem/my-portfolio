@@ -232,20 +232,36 @@ export default function Page() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact">
-        <div className="mx-auto w-full max-w-2xl text-center py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Get in Touch</h2>
-            <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl mt-4">
-              Want to chat about phishing detection or research? My inbox is always open.
-            </p>
-            <Link href={`mailto:${DATA.contact.email}`} className="inline-block mt-8 text-primary hover:underline font-medium">
-              {DATA.contact.email}
-            </Link>
-          </BlurFade>
+<section id="contact">
+  <div className="mx-auto w-full max-w-2xl text-center py-12 md:py-24">
+    <BlurFade delay={BLUR_FADE_DELAY * 16}>
+      <div className="space-y-4">
+        <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+          Contact
         </div>
-      </section>
-
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          Get in Touch
+        </h2>
+        <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+          Whether it&apos;s about **phishing detection research**, **explainable AI**, or potential internship opportunities, my inbox is always open.
+        </p>
+        
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="pt-4"
+        >
+          <Link 
+            href={`mailto:${DATA.contact.email}`} 
+            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          >
+            Email Me
+          </Link>
+        </motion.div>
+      </div>
+    </BlurFade>
+  </div>
+</section>
     </main>
   );
 }
