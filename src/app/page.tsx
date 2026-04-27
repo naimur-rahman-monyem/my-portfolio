@@ -4,7 +4,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import BlurFade from "@/components/magicui/blur-fade"; 
-import { Icons } from "@/components/icons"; 
+import { Icons } from "@/components/icons"; // This fixes the 'Cannot find name Icons' error
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
