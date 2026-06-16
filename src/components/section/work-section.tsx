@@ -1,87 +1,77 @@
-/* eslint-disable @next/next/no-img-element */
-/*"use client";
+"use client";
+
 import { useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import BlurFade from "@/components/magicui/blur-fade";
 import { DATA } from "@/data/resume";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-
-function LogoImage({ src, alt }: { src: string; alt: string }) {
-  const [imageError, setImageError] = useState(false);
-
-  if (!src || imageError) {
-    return (
-      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
-    );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
-      onError={() => setImageError(true)}
-    />
-  );
-}
+import { Icons } from "@/components/icons";
+import { ArrowUpRight } from "lucide-react";
 
 export default function WorkSection() {
   return (
-    <Accordion type="single" collapsible className="w-full grid gap-6">
-      {DATA.work.map((work) => (
-        <AccordionItem
+    <div className="mx-auto w-full max-w-2xl flex flex-col gap-y-6">
+      
+      {DATA.work?.map((work, index) => (
+        <BlurFade
           key={work.company}
-          value={work.company}
-          className="w-full border-b-0 grid gap-2"
+          delay={0.04 * 8 + index * 0.1}
+          yOffset={10}
         >
-          <AccordionTrigger className="hover:no-underline p-0 cursor-pointer transition-colors rounded-none group [&>svg]:hidden">
-            <div className="flex items-center gap-x-3 justify-between w-full text-left">
+          <motion.div
+            whileHover={{ x: 5 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          >
+            <div className="flex items-center gap-x-3 justify-between group">
+              
+              {/* LEFT SIDE */}
               <div className="flex items-center gap-x-3 flex-1 min-w-0">
-                <LogoImage src={work.logoUrl} alt={work.company} />
-                <div className="flex-1 min-w-0 gap-0.5 flex flex-col">
-                  <div className="font-semibold leading-none flex items-center gap-2">
+                
+                {/* LOGO */}
+                <div className="relative flex-none overflow-hidden rounded-full ring-2 ring-border transition-all duration-300 group-hover:ring-primary/50 group-hover:shadow-md">
+                  {work.logoUrl ? (
+                    <img
+                      src={work.logoUrl}
+                      alt={work.company}
+                      className="size-10 md:size-12 p-1 object-contain transition-transform duration-300 group-hover:scale-110"
+                    />
+                  ) : (
+                    <div className="size-10 md:size-12 p-1 bg-muted flex items-center justify-center">
+                      <Icons.work className="size-5 text-muted-foreground" />
+                    </div>
+                  )}
+                </div>
+
+                {/* TEXT */}
+                <div className="flex-1 min-w-0 flex flex-col gap-0.5 ml-1">
+                  
+                  <div className="font-semibold leading-none flex items-center gap-2 text-base md:text-lg">
                     {work.company}
-                    <span className="relative inline-flex items-center w-3.5 h-3.5">
-                      <ChevronRight
-                        className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-300 ease-out",
-                          "translate-x-0 opacity-0",
-                          "group-hover:translate-x-1 group-hover:opacity-100",
-                          "group-data-[state=open]:opacity-0 group-data-[state=open]:translate-x-0"
-                        )}
-                      />
-                      <ChevronDown
-                        className={cn(
-                          "absolute h-3.5 w-3.5 shrink-0 text-muted-foreground stroke-2 transition-all duration-200",
-                          "opacity-0 rotate-0",
-                          "group-data-[state=open]:opacity-100 group-data-[state=open]:rotate-180"
-                        )}
-                      />
-                    </span>
+                    <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
                   </div>
-                  <div className="font-sans text-sm text-muted-foreground">
+
+                  <div className="text-sm md:text-base text-muted-foreground">
                     {work.title}
                   </div>
+
+                  <div className="text-xs md:text-sm text-muted-foreground">
+                    {work.description}
+                  </div>
+
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
-                <span>
-                  {work.start} - {work.end ?? "Present"}
+
+              {/* RIGHT SIDE (DATES) */}
+              <div className="text-xs md:text-sm text-muted-foreground tabular-nums">
+                <span className="bg-secondary/50 px-2 py-0.5 rounded-full">
+                  {work.start} - {work.end}
                 </span>
               </div>
+
             </div>
-          </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
-            {work.description}
-          </AccordionContent>
-        </AccordionItem>
+          </motion.div>
+        </BlurFade>
       ))}
-    </Accordion>
+    </div>
   );
 }
-*/

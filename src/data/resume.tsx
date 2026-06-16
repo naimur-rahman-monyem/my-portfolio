@@ -25,6 +25,18 @@ While my background is rooted in core engineering and development with C# and Ja
 
 Currently, I am leveraging my technical foundation to master the modern data stack—combining Python, SQL, and analytical thinking to solve real-world problems. I am eager to contribute my technical expertise to a data-forward team where I can grow as a Data Analyst.`,
   avatarUrl: "/naimur.jpg",
+  work: [
+  {
+    company: "Fashion Asia Limited",
+    href: "https://www.fashionasialtd.com/" ,
+    title: "IT & MIS Intern",
+    logoUrl: "/fashion-asia.jpg", 
+    start: "Jun 2026",
+    end: "Present",
+    description:
+      "Currently working in the IT & MIS Department, supporting system operations, data management, reporting, and internal technical tasks.",
+  },
+],
   education: [
     {
       school: "American International University-Bangladesh",

@@ -12,6 +12,7 @@ import Markdown from "react-markdown";
 import { ProjectCard } from "@/components/project-card";
 import ResumeButton from "@/components/ResumeButton";
 import ContactSection from "@/components/section/contact-section";
+import WorkSection from "@/components/section/work-section";
 const BLUR_FADE_DELAY = 0.04;
 
 function CyclingDescription({ description }: { description: string }) {
@@ -91,6 +92,16 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      {/* Work Section */}
+<section id="work">
+  <div className="mx-auto w-full max-w-2xl space-y-6 py-12">
+    <BlurFade delay={BLUR_FADE_DELAY * 6}>
+      <h2 className="text-xl font-bold">Work Experience</h2>
+    </BlurFade>
+
+    <WorkSection />
+  </div>
+</section>
 
       {/* Education Section */}
       <section id="education">
