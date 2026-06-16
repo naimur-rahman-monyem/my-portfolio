@@ -13,12 +13,12 @@ import { Csharp } from "@/components/ui/svgs/csharp";
 import { SQL } from "@/components/ui/svgs/sql";
 export const DATA = {
   name: "Naimur Rahman Monyem",
-  initials: "DV",
-  url: "https://dillion.io",
+  initials: "NRM",
+  url: "https://naimurrahmanmonyem.vercel.app/",
   location: "Dhaka , Bangladesh",
   locationLink: "https://www.google.com/maps/place/dhaka",
   description:
-  "Aspiring Data Analyst | Problem Solver\nI analyze data to uncover stories and drive decisions.\nBuilding skills. Sharing insights.",
+  "C# Developer \n Java Developer \n SQL Problem Solver \n Aspiring Data Analyst \n Analyze data to uncover stories and drive decisions \n Building skills. Sharing insights. ",
   summary:`I am a Computer Science & Engineering student at AIUB with a passion for bridging the gap between complex software development and data-driven insights. 
 
 While my background is rooted in core engineering and development with C# and Java, my true fascination lies in discovering the "why" behind the numbers. I specialize in transforming raw datasets into actionable stories that drive strategic decision-making.
@@ -111,7 +111,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
     {
   title: "CarSales Inventory Management",
   href: "https://github.com/naimur-rahman-monyem/Carsales-InventoryManagementSystem",
-  dates: "January 2024 - Present",
+  dates: "January 2025",
   active: true,
   description:
     "A comprehensive C# desktop application designed to streamline car dealership operations, managing vehicle stock, customer records, and sales transactions efficiently.",

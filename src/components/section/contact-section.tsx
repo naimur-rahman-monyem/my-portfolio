@@ -23,25 +23,26 @@ export default function ContactSection() {
         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
           Get in Touch
         </h2>
-        <p className="mx-auto max-w-lg text-muted-foreground text-balance">
-          Want to chat about research or potential opportunities? Reach out via{" "}
-          <Link
-            href={DATA.contact.social.WhatsApp.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            WhatsApp
-          </Link>{" "}
-          or{" "}
-          <Link
-            href={`mailto:${DATA.contact.email}`}
-            className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-          >
-            send an email
-          </Link>
-          , and I&apos;ll respond as soon as possible.
-        </p>
+       <p className="mx-auto max-w-lg text-muted-foreground text-balance">
+  Want to chat about research or potential opportunities? Reach out via:
+</p>
+
+<div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+  <Link
+    href="https://wa.me/8801601887741"
+    target="_blank"
+    className="inline-flex items-center justify-center rounded-md bg-green-500 px-6 py-2 text-white hover:bg-green-600 transition-colors"
+  >
+    Chat on WhatsApp
+  </Link>
+
+  <Link
+    href="mailto:naimurrohan204@gmail.com"
+    className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-white hover:bg-primary/90 transition-colors"
+  >
+    Send Email
+  </Link>
+</div>
       </div>
     </div>
   );

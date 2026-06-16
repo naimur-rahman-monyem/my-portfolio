@@ -10,7 +10,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Markdown from "react-markdown";
 import { ProjectCard } from "@/components/project-card";
-
+import ResumeButton from "@/components/ResumeButton";
+import ContactSection from "@/components/section/contact-section";
 const BLUR_FADE_DELAY = 0.04;
 
 function CyclingDescription({ description }: { description: string }) {
@@ -232,36 +233,8 @@ export default function Page() {
       </section>
 
       {/* Contact Section */}
-<section id="contact">
-  <div className="mx-auto w-full max-w-2xl text-center py-12 md:py-24">
-    <BlurFade delay={BLUR_FADE_DELAY * 16}>
-      <div className="space-y-4">
-        <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-          Contact
-        </div>
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-          Get in Touch
-        </h2>
-        <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Whether it&apos;s about **phishing detection research**, **explainable AI**, or potential internship opportunities, my inbox is always open.
-        </p>
-        
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="pt-4"
-        >
-          <Link 
-            href={`mailto:${DATA.contact.email}`} 
-            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-          >
-            Email Me
-          </Link>
-        </motion.div>
-      </div>
-    </BlurFade>
-  </div>
-</section>
+    <ContactSection />
+     <ResumeButton />
     </main>
   );
 }
