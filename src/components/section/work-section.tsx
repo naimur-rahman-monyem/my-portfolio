@@ -45,10 +45,15 @@ export default function WorkSection() {
                 {/* TEXT */}
                 <div className="flex-1 min-w-0 flex flex-col gap-0.5 ml-1">
                   
-                  <div className="font-semibold leading-none flex items-center gap-2 text-base md:text-lg">
-                    {work.company}
-                    <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
-                  </div>
+                  <Link
+  href={work.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="font-semibold leading-none flex items-center gap-2 text-base md:text-lg hover:text-primary"
+>
+  {work.company}
+  <ArrowUpRight className="h-3.5 w-3.5" />
+</Link>
 
                   <div className="text-sm md:text-base text-muted-foreground">
                     {work.title}

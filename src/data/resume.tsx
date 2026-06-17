@@ -23,7 +23,7 @@ export const DATA = {
 
 While my background is rooted in core engineering and development with C# and Java, my true fascination lies in discovering the "why" behind the numbers. I specialize in transforming raw datasets into actionable stories that drive strategic decision-making.
 
-Currently, I am leveraging my technical foundation to master the modern data stack—combining Python, SQL, and analytical thinking to solve real-world problems. I am eager to contribute my technical expertise to a data-forward team where I can grow as a Data Analyst.`,
+Currently, I am leveraging my technical foundation to master the modern data stack—combining Python, SQL, and analytical thinking to solve real-world problems.`,
   avatarUrl: "/naimur.jpg",
   work: [
   {
@@ -92,7 +92,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/naimurrahman7402",
+        url: "https://github.com/naimur-rahman-monyem",
         icon: Icons.github,
         navbar: true,
       },
