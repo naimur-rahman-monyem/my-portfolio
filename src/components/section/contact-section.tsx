@@ -1,29 +1,39 @@
+"use client";
+
 import { useState } from "react";
+import { DATA } from "@/data/resume";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const email = DATA.contact.email;
+  const whatsappUrl = DATA.contact.social.WhatsApp.url;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // fake submit delay (replace with real API later)
-    setTimeout(() => {
-      setSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const senderEmail = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-      // auto reset after 3s (optional)
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 500);
+    const subject = encodeURIComponent(`Portfolio message from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${senderEmail}\n\n${message}`
+    );
+
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    e.currentTarget.reset();
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   return (
-    <div className="border rounded-xl p-10 relative overflow-hidden">
-      {/* Badge */}
+    <section id="contact" className="border rounded-xl p-10 relative overflow-hidden">
       <div className="absolute -top-4 border bg-blue-500 z-10 rounded-xl px-4 py-1 left-1/2 -translate-x-1/2">
         <span className="text-white text-sm font-medium">Contact</span>
       </div>
 
-      {/* Background */}
       <div className="absolute inset-0 top-0 left-0 right-0 h-1/2 rounded-xl overflow-hidden">
         <FlickeringGrid
           className="h-full w-full"
@@ -36,7 +46,6 @@ export default function ContactSection() {
         />
       </div>
 
-      {/* Content */}
       <div className="relative flex flex-col items-center gap-4 text-center">
         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
           Get in Touch
@@ -47,43 +56,47 @@ export default function ContactSection() {
           out directly.
         </p>
 
-        {/* SUCCESS STATE */}
         {submitted ? (
           <div className="mt-10 flex flex-col items-center gap-3 animate-fade-in">
-            <div className="h-16 w-16 rounded-full bg-green-500 flex items-center justify-center animate-bounce">
-              <span className="text-white text-2xl">✓</span>
+            <div className="h-16 w-16 rounded-full bg-green-500 flex items-center justify-center">
+              <span className="text-white text-sm font-semibold">Sent</span>
             </div>
 
             <h3 className="text-xl font-semibold text-green-500">
-              Message Sent!
+              Email Draft Opened
             </h3>
 
             <p className="text-sm text-zinc-400">
-              Thanks for reaching out. I’ll get back to you soon.
+              Review the message in your email app and send it from there.
             </p>
           </div>
         ) : (
           <>
-            {/* FORM */}
             <form
               onSubmit={handleSubmit}
               className="w-full max-w-xl space-y-4 pt-6"
             >
               <input
+                name="name"
                 type="text"
                 placeholder="Your name"
+                required
                 className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
               />
 
               <input
+                name="email"
                 type="email"
                 placeholder="Your email"
+                required
                 className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
               />
 
               <textarea
+                name="message"
                 placeholder="Your message"
                 rows={5}
+                required
                 className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
               />
 
@@ -95,33 +108,32 @@ export default function ContactSection() {
               </button>
             </form>
 
-          
-            {/* Direct contact options */}
-<div className="pt-6 flex flex-col items-center gap-3">
-  <p className="text-sm text-zinc-400">
-    You can also directly contact me via WhatsApp or email.
-  </p>
+            <div className="pt-6 flex flex-col items-center gap-3">
+              <p className="text-sm text-zinc-400">
+                You can also directly contact me via WhatsApp or email.
+              </p>
 
-  <div className="flex flex-col sm:flex-row gap-4">
-    <a
-      href="https://wa.me/8801601887741"
-      target="_blank"
-      className="inline-flex items-center justify-center rounded-md bg-green-500 px-6 py-2 text-white hover:bg-green-600 transition-colors"
-    >
-      WhatsApp
-    </a>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-md bg-green-500 px-6 py-2 text-white hover:bg-green-600 transition-colors"
+                >
+                  WhatsApp
+                </a>
 
-    <a
-      href="mailto:naimurrohan204@gmail.com"
-      className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700 transition-colors"
-    >
-      Send Email
-    </a>
-  </div>
-</div>
+                <a
+                  href={`mailto:${email}`}
+                  className="inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-2 text-white hover:bg-blue-700 transition-colors"
+                >
+                  Send Email
+                </a>
+              </div>
+            </div>
           </>
         )}
       </div>
-    </div>
+    </section>
   );
 }

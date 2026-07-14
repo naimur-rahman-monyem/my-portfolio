@@ -23,8 +23,8 @@ export const DATA = {
 
 While my background is rooted in core engineering and development with C# and Java, my true fascination lies in discovering the "why" behind the numbers. I specialize in transforming raw datasets into actionable stories that drive strategic decision-making.
 
-Currently, I am leveraging my technical foundation to master the modern data stack—combining Python, SQL, and analytical thinking to solve real-world problems.`,
-  avatarUrl: "/naimur.jpg",
+Currently, I am leveraging my technical foundation to master the modern data stack - combining Python, SQL, and analytical thinking to solve real-world problems.`,
+  avatarUrl: "/my_photo.png",
   work: [
   {
     company: "Fashion Asia Limited",
@@ -88,7 +88,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
 ],
   contact: {
     email: "naimurrohan204@gmail.com",
-    tel: "+8801607887741",
+    tel: "+8801601887741",
     social: {
       GitHub: {
         name: "GitHub",
@@ -105,7 +105,7 @@ Currently, I am leveraging my technical foundation to master the modern data sta
     
       WhatsApp: {
       name: "WhatsApp",
-      url: "https://wa.me/8801607887741", 
+      url: "https://wa.me/8801601887741", 
       icon: Icons.whatsapp,
       navbar: true,
     },

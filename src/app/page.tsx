@@ -57,7 +57,7 @@ export default function Page() {
             <div className="gap-2 flex flex-col order-2 md:order-1 flex-1">
               <BlurFade delay={BLUR_FADE_DELAY} yOffset={8}>
                 <h1 className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl">
-                  Hi, I'm {DATA.name.split(" ")[0]} 
+                  Hi, I&apos;m {DATA.name.split(" ")[0]} 
                 </h1>
               </BlurFade>
               <CyclingDescription description={DATA.description} />
