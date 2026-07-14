@@ -81,7 +81,7 @@ export default function ContactSection() {
                 type="text"
                 placeholder="Your name"
                 required
-                className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
+                className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-blue-500 outline-none"
               />
 
               <input
@@ -89,7 +89,7 @@ export default function ContactSection() {
                 type="email"
                 placeholder="Your email"
                 required
-                className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
+                className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-blue-500 outline-none"
               />
 
               <textarea
@@ -97,7 +97,7 @@ export default function ContactSection() {
                 placeholder="Your message"
                 rows={5}
                 required
-                className="w-full rounded-lg border border-zinc-800 bg-black px-4 py-3 text-white focus:border-blue-500 outline-none"
+                className="w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground focus:border-blue-500 outline-none"
               />
 
               <button

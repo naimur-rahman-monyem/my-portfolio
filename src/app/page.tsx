@@ -13,6 +13,7 @@ import { ProjectCard } from "@/components/project-card";
 import ResumeButton from "@/components/ResumeButton";
 import ContactSection from "@/components/section/contact-section";
 import WorkSection from "@/components/section/work-section";
+import CyberpunkHero from "@/components/cyberpunk-hero";
 const BLUR_FADE_DELAY = 0.04;
 
 function CyclingDescription({ description }: { description: string }) {
@@ -48,36 +49,12 @@ function CyclingDescription({ description }: { description: string }) {
 
 export default function Page() {
   return (
-    <main className="min-h-dvh flex flex-col gap-14 relative px-6 py-12 md:py-24">
-      
-      {/* Hero Section */}
-      <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
-          <div className="gap-2 gap-y-6 flex flex-col md:flex-row justify-between items-center md:items-start">
-            <div className="gap-2 flex flex-col order-2 md:order-1 flex-1">
-              <BlurFade delay={BLUR_FADE_DELAY} yOffset={8}>
-                <h1 className="text-3xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl">
-                  Hi, I&apos;m {DATA.name.split(" ")[0]} 
-                </h1>
-              </BlurFade>
-              <CyclingDescription description={DATA.description} />
-            </div>
+    <main className="min-h-dvh flex flex-col relative w-full overflow-x-hidden">
+      {/* Cyberpunk Interactive Hero */}
+      <CyberpunkHero />
 
-            <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
-              <motion.div
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
-                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} className="object-cover" />
-                  <AvatarFallback>{DATA.initials}</AvatarFallback>
-                </Avatar>
-              </motion.div>
-            </BlurFade>
-          </div>
-        </div>
-      </section>
+      {/* Core content container with original width constraint */}
+      <div className="max-w-2xl mx-auto px-6 py-12 md:py-24 w-full flex flex-col gap-14 relative z-10">
 
       {/* About Section */}
       <section id="about">
@@ -85,11 +62,30 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="text-xl font-bold">About</h2>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-              <Markdown>{DATA.summary}</Markdown>
-            </div>
-          </BlurFade>
+          
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_160px] gap-8 items-start">
+            <BlurFade delay={BLUR_FADE_DELAY * 4}>
+              <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
+                <Markdown>{DATA.summary}</Markdown>
+              </div>
+            </BlurFade>
+            
+            <BlurFade delay={BLUR_FADE_DELAY * 5} className="flex justify-center">
+              <motion.div
+                whileHover={{ scale: 1.06, rotate: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="relative group cursor-pointer"
+              >
+                {/* Cyberpunk neon border glow overlay */}
+                <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-75 blur-md group-hover:opacity-100 transition duration-300 pointer-events-none" />
+                <img
+                  src={DATA.avatarUrl}
+                  alt={DATA.name}
+                  className="relative size-32 md:size-36 object-cover rounded-2xl border border-border/40 shadow-xl bg-slate-900"
+                />
+              </motion.div>
+            </BlurFade>
+          </div>
         </div>
       </section>
       {/* Work Section */}
@@ -244,8 +240,10 @@ export default function Page() {
       </section>
 
       {/* Contact Section */}
-    <ContactSection />
-     <ResumeButton />
+      <ContactSection />
+      
+      </div>
+      <ResumeButton />
     </main>
   );
 }

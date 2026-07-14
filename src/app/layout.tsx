@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import FlickeringBackground from "@/components/flickering-background";
+import CyberParticles from "@/components/cyber-particles";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -74,12 +74,12 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             {/* Background Layer */}
-            <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
-              <FlickeringBackground />
+            <div className="fixed inset-0 w-full h-full pointer-events-none z-0">
+              <CyberParticles />
             </div>
 
             {/* Content Layer */}
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+            <div className="relative z-10 w-full">
               {children}
             </div>
 
