@@ -5,11 +5,12 @@ import { DATA } from "@/data/resume";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function ContactSection() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
   const email = DATA.contact.email;
   const whatsappUrl = DATA.contact.social.WhatsApp.url;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -17,15 +18,38 @@ export default function ContactSection() {
     const senderEmail = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    const subject = encodeURIComponent(`Portfolio message from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${senderEmail}\n\n${message}`
-    );
+    setStatus("loading");
 
-    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    e.currentTarget.reset();
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email: senderEmail,
+          message,
+        }),
+      });
+
+      const data: { success?: boolean; error?: string } = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus("success");
+        setErrorMessage("");
+        e.currentTarget.reset();
+        setTimeout(() => setStatus("idle"), 3000);
+        return;
+      }
+
+      setErrorMessage(data.error || "Something went wrong. Please try again.");
+      setStatus("error");
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Network error. Please try again.");
+      setStatus("error");
+    }
   };
 
   return (
@@ -56,18 +80,18 @@ export default function ContactSection() {
           out directly.
         </p>
 
-        {submitted ? (
+        {status === "success" ? (
           <div className="mt-10 flex flex-col items-center gap-3 animate-fade-in">
             <div className="h-16 w-16 rounded-full bg-green-500 flex items-center justify-center">
               <span className="text-white text-sm font-semibold">Sent</span>
             </div>
 
             <h3 className="text-xl font-semibold text-green-500">
-              Email Draft Opened
+              Message Sent
             </h3>
 
             <p className="text-sm text-zinc-400">
-              Review the message in your email app and send it from there.
+              Thanks for reaching out. I&apos;ll get back to you soon.
             </p>
           </div>
         ) : (
@@ -102,10 +126,17 @@ export default function ContactSection() {
 
               <button
                 type="submit"
+                disabled={status === "loading"}
                 className="w-full rounded-xl bg-blue-500 py-4 text-lg font-semibold text-white hover:bg-blue-600 transition-colors"
               >
-                Send Message
+                {status === "loading" ? "Sending..." : "Send Message"}
               </button>
+
+              {status === "error" && (
+                <p className="text-sm text-red-400">
+                  {errorMessage || "Something went wrong. Please try again."}
+                </p>
+              )}
             </form>
 
             <div className="pt-6 flex flex-col items-center gap-3">

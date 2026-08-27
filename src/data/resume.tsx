@@ -119,7 +119,39 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   },
   
   projects: [
-    
+    {
+    title: "Project & Task Management System",
+
+    href: "https://github.com/naimur-rahman-monyem/ProjectManagementSystem",
+
+    dates: "August 2026",
+
+    active: true,
+
+    description:
+        "A role-based project and task management web application built with ASP.NET MVC. It enables organizations to manage projects, assign team members, create and track tasks, monitor progress, and manage users through a centralized dashboard.",
+
+    technologies: [
+        "C#",
+        "ASP.NET MVC",
+        ".NET Framework",
+        "Entity Framework",
+        "SQL Server",
+        "Razor",
+        "Bootstrap",
+        "JavaScript"
+    ],
+
+    links: [
+        {
+            type: "Source",
+            href: "https://github.com/naimur-rahman-monyem/ProjectManagementSystem",
+            icon: <Icons.github className="size-3" />,
+        },
+    ],
+
+    image: "/ProjectManagement.png"
+},
     {
   title: "CarSales Inventory Management",
   href: "https://github.com/naimur-rahman-monyem/Carsales-InventoryManagementSystem",
@@ -162,6 +194,37 @@ Currently, I am leveraging my technical foundation to master the modern data sta
   ],
   image: "/aiub-cineplex.png"
 }, 
+{
+    title: "Event Ticket Booking System",
+
+    href: "https://github.com/naimur-rahman-monyem/Event-Ticket-Booking",
+
+    dates: "August 2026",
+
+    active: true,
+
+    description:
+        "A PHP and MySQL-based event ticket booking system that allows customers to register, securely log in, browse events, select multiple events, validate bookings, and receive booking confirmation.",
+
+    technologies: [
+        "PHP",
+        "MySQL",
+        "MySQLi",
+        "HTML",
+        "CSS",
+        "XAMPP"
+    ],
+
+    links: [
+        {
+            type: "Source",
+            href: "https://github.com/naimur-rahman-monyem/EventTicketBookingSystem",
+            icon: <Icons.github className="size-3" />,
+        },
+    ],
+
+    image: "/EventTicketBooking.png"
+},
 {
   title: "Phishing Website Detection using Multi-Modal ML",
   href: "https://github.com/naimur-rahman-monyem/A-Multi-Modal-Machine-Learning-Approach-for-Phishing-Website-Detection-Using-URL-and-Visual-Features",
@@ -225,23 +288,23 @@ research: [
       },
       {
         type: "Download PDF",
-       href: "/papers/research_paper_1.pdf", // Ensure this file is in your /public folder
+       href: "/papers/research_paper_1.pdf",
         icon: <Icons.download className="size-3" />,
       },
     ],
   },
   {
-    title: "An Explainable Machine Learning Framework for Cybersecurity Risk Prediction",
-    dates: "Feb 2026 - Present",
-    conference: "Ongoing Research",
+    title: "CyberRiskXAI: An Explainable Machine Learning Framework for Cybersecurity Risk Prediction andRisk Aware Recommendations ",
+    dates: "Feb 2026 - August 2026",
+    conference: "Undergraduate Research Thesis",
     description:
       "Researching clustering-based personalized recommendations and Explainable AI (XAI) to predict and communicate cybersecurity risks effectively to university students.",
     links: [
       {
-        type: "Abstract",
-        href: "#", 
-        icon: <Icons.external className="size-3" />,
-      },
+        type: "Download Paper",
+        href: "/papers/full paper_G72.pdf", 
+        icon: <Icons.download className="size-3" />,
+      }
     ],
   },
 ],
