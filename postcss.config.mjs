@@ -4,4 +4,8 @@ const config = {
   },
 };
 
+<<<<<<< HEAD
 export default config;
+=======
+export default config;
+>>>>>>> master

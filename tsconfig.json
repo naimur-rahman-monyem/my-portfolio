@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
+=======
+    "target": "ES2017",
+>>>>>>> master
     "lib": [
       "dom",
       "dom.iterable",
@@ -25,8 +29,12 @@
       "@/*": [
         "./src/*"
       ]
+<<<<<<< HEAD
     },
     "target": "ES2017"
+=======
+    }
+>>>>>>> master
   },
   "include": [
     "next-env.d.ts",
