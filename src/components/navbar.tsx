@@ -1,0 +1,97 @@
+import { Dock, DockIcon } from "@/components/magicui/dock";
+import { ModeToggle } from "@/components/mode-toggle";
+import { Separator } from "@/components/ui/separator";
+import {
+  Tooltip,
+  TooltipArrow,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { DATA } from "@/data/resume";
+
+export default function Navbar() {
+  return (
+    <div className="pointer-events-none fixed inset-x-0 bottom-4 z-30">
+      <Dock className="z-50 pointer-events-auto relative h-14 p-2 w-fit mx-auto flex gap-2 border border-cyan-500/30 dark:border-purple-500/30 bg-background/80 backdrop-blur-3xl shadow-[0_0_15px_rgba(6,182,212,0.15)] dark:shadow-[0_0_15px_rgba(168,85,247,0.12)]">
+        {DATA.navbar.map((item) => {
+          const isExternal = item.href.startsWith("http");
+          return (
+            <Tooltip key={item.href}>
+              <TooltipTrigger asChild>
+                <a
+                  href={item.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                >
+                  <DockIcon className="rounded-3xl cursor-pointer size-full bg-background/45 p-0 text-muted-foreground hover:text-cyan-500 dark:hover:text-purple-400 hover:bg-cyan-500/5 dark:hover:bg-purple-500/5 backdrop-blur-3xl border border-border/40 hover:border-cyan-500/40 dark:hover:border-purple-500/40 transition-all duration-200">
+                    <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
+                  </DockIcon>
+                </a>
+              </TooltipTrigger>
+              <TooltipContent
+                side="top"
+                sideOffset={8}
+                className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+              >
+                <p>{item.label}</p>
+                <TooltipArrow className="fill-primary" />
+              </TooltipContent>
+            </Tooltip>
+          );
+        })}
+        <Separator
+          orientation="vertical"
+          className="h-2/3 m-auto w-px bg-border"
+        />
+        {Object.entries(DATA.contact.social)
+          .filter(([_, social]) => social.navbar)
+          .map(([name, social], index) => {
+            const isExternal = social.url.startsWith("http");
+            const IconComponent = social.icon;
+            return (
+              <Tooltip key={`social-${name}-${index}`}>
+                <TooltipTrigger asChild>
+                  <a
+                    href={social.url}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                  >
+                    <DockIcon className="rounded-3xl cursor-pointer size-full bg-background/45 p-0 text-muted-foreground hover:text-cyan-500 dark:hover:text-purple-400 hover:bg-cyan-500/5 dark:hover:bg-purple-500/5 backdrop-blur-3xl border border-border/40 hover:border-cyan-500/40 dark:hover:border-purple-500/40 transition-all duration-200">
+                      <IconComponent className="size-full rounded-sm overflow-hidden object-contain" />
+                    </DockIcon>
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent
+                  side="top"
+                  sideOffset={8}
+                  className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                >
+                  <p>{name}</p>
+                  <TooltipArrow className="fill-primary" />
+                </TooltipContent>
+              </Tooltip>
+            );
+          })}
+        <Separator
+          orientation="vertical"
+          className="h-2/3 m-auto w-px bg-border"
+        />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DockIcon className="rounded-3xl cursor-pointer size-full bg-background/45 p-0 text-muted-foreground hover:text-cyan-500 dark:hover:text-purple-400 hover:bg-cyan-500/5 dark:hover:bg-purple-500/5 backdrop-blur-3xl border border-border/40 hover:border-cyan-500/40 dark:hover:border-purple-500/40 transition-all duration-200">
+              <ModeToggle className="size-full cursor-pointer" />
+            </DockIcon>
+          </TooltipTrigger>
+          <TooltipContent
+            side="top"
+            sideOffset={8}
+            className="rounded-xl bg-primary text-primary-foreground px-4 py-2 text-sm shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] dark:shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+          >
+            <p>Theme</p>
+            <TooltipArrow className="fill-primary" />
+          </TooltipContent>
+        </Tooltip>
+      </Dock>
+    </div>
+  );
+}
