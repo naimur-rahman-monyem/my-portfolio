@@ -117,6 +117,38 @@ Currently, I am leveraging my technical foundation to master the modern data sta
 
   projects: [
     {
+  title: "Smart Travel Expense Planner",
+  href: "https://smart-travel-expense.onrender.com",
+  dates: "September 2026",
+  active: true,
+  description:
+    "A full-stack travel expense platform for managing trips, budgets, expenses, and multiple currencies. It provides historical currency conversion, spending analytics, budget alerts, admin controls, and exportable financial reports.",
+  technologies: [
+    "Python",
+    "Flask",
+    "PostgreSQL",
+    "SQLAlchemy",
+    "REST API",
+    "Bootstrap 5",
+    "JavaScript",
+    "Plotly",
+    "Pandas",
+  ],
+  links: [
+    {
+      type: "Source",
+      href: "https://github.com/naimur-rahman-monyem/Smart-Travel-Expense",
+      icon: <Icons.github className="size-3" />,
+    },
+    {
+      type: "Live Demo",
+      href: "https://smart-travel-expense.onrender.com",
+      icon: <Icons.globe className="size-3" />,
+    },
+  ],
+  image: "/smart-travel-expense.png",
+},
+    {
       title: "Japan Career & Living Assistant",
       href: "https://japan-career-living-assistant.vercel.app/",
       dates: "September 2026",
